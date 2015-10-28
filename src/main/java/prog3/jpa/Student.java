@@ -1,7 +1,6 @@
 package prog3.jpa;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by MichaelDick on 28/10/15.
@@ -9,7 +8,9 @@ import javax.persistence.Id;
 @Entity
 public class Student {
 
-    @Id
+
+    @Id //don't use value generator in this case, since Matrikelnummer is unique
+    @Column(name = "STUDENT_ID")
     private int matnr;
 
     private String firstname;
@@ -17,6 +18,10 @@ public class Student {
     private String lastname;
 
     private String email;
+
+    @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL) //lazy means "load kitcard on-demand --> only when needed" cascade.all means, persist,remove,merge kitcard when performing those operations for student
+    
+    private KITCard kitCard;
 
     //Constructors
 
@@ -68,6 +73,14 @@ public class Student {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public KITCard getKitCard() {
+        return kitCard;
+    }
+
+    public void setKitCard(KITCard kitCard) {
+        this.kitCard = kitCard;
     }
 
     @Override
