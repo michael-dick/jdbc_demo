@@ -76,11 +76,11 @@ public class StudentDBConnection extends GenericDBConnection<Integer, Student> {
 
         ResultSet rs;
 
-        connect("student");
+        //connect("student");
 
             rs = mStatement.executeQuery("SELECT * FROM student WHERE matnr = '" + matnr + "';");
 
-        disconnect();
+        //disconnect();
 
         return rs;
     }

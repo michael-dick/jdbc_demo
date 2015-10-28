@@ -41,7 +41,7 @@ public abstract class GenericDBConnection<KEY , TYPE> {
 
     public void disconnect(){
         try {
-            mStatement.close();
+            //mStatement.close();
             connection.close();
             System.out.println("disconnected");
         } catch (SQLException err) {
