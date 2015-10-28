@@ -1,4 +1,4 @@
-package prog3;
+package prog3.jdbc;
 
 import java.sql.*;
 
@@ -16,20 +16,18 @@ public abstract class GenericDBConnection<KEY , TYPE> {
 
     public void connect(String dbName){
         //load jdbc driver
-//        try {
-//            Class.forName("com.mysql.jdbc.Driver").newInstance();
-//            System.out.println("driver loaded");
-//        } catch (Exception ex) {
-//            System.out.println("Driver: " + ex.getMessage());
-//            System.out.println("Error: " + ex.toString());
-//        }
+        try {
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            System.out.println("driver loaded");
+        } catch (Exception ex) {
+            System.out.println("Driver: " + ex.getMessage());
+            System.out.println("Error: " + ex.toString());
+        }
 
         //Connection
         try {
             connection = DriverManager.getConnection
                     ("jdbc:mysql://localhost/" + dbName, "root", "");
-
-            mStatement = connection.createStatement();
 
             System.out.println("connection established");
         } catch (SQLException ex) {
@@ -41,7 +39,6 @@ public abstract class GenericDBConnection<KEY , TYPE> {
 
     public void disconnect(){
         try {
-            //mStatement.close();
             connection.close();
             System.out.println("disconnected");
         } catch (SQLException err) {

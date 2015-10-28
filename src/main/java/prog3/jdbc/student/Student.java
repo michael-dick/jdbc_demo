@@ -1,4 +1,4 @@
-package prog3.student;
+package prog3.jdbc.student;
 
 /**
  * Created by MichaelDick on 28/10/15.

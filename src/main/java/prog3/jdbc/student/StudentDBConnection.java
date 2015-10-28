@@ -1,10 +1,11 @@
-package prog3.student;
+package prog3.jdbc.student;
 
 
-import prog3.GenericDBConnection;
+import prog3.jdbc.GenericDBConnection;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
  * Created by MichaelDick on 28/10/15.
@@ -23,7 +24,10 @@ public class StudentDBConnection extends GenericDBConnection<Integer, Student> {
             mPreparedStatement.setString(4, entity.getEmail());
 
             mPreparedStatement.executeUpdate();
-        } catch (SQLException err) {
+        } catch (SQLIntegrityConstraintViolationException icve){
+            System.out.println("Duplicate Primary Key!");
+        }
+        catch (SQLException err) {
             System.err.print(err);
         }
 
