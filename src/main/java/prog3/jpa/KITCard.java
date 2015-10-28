@@ -60,7 +60,7 @@ public class KITCard {
         return "KITCard{" +
                 "id=" + id +
                 ", deposit=" + deposit +
-                ", student=" + student +
+                ", studentId=" + student.getMatnr() +
                 '}';
     }
 }

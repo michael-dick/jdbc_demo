@@ -20,7 +20,6 @@ public class Student {
     private String email;
 
     @OneToOne(fetch = FetchType.LAZY , cascade = CascadeType.ALL) //lazy means "load kitcard on-demand --> only when needed" cascade.all means, persist,remove,merge kitcard when performing those operations for student
-    
     private KITCard kitCard;
 
     //Constructors
@@ -90,7 +89,7 @@ public class Student {
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
+                ", kitCard=" + kitCard +
                 '}';
     }
-
 }

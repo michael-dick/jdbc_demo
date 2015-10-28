@@ -29,6 +29,7 @@ public class JPAStudentDBRun {
 
         michi.setKitCard(michisCard);
 
+        //Surround with try-finally to make sure the transaction is rolled back if something goes wrong
 
         try {
             em.getTransaction().begin();
@@ -38,6 +39,23 @@ public class JPAStudentDBRun {
             if(em.getTransaction().isActive())
                 em.getTransaction().rollback();
         }
+
+
+        try {
+            em.getTransaction().begin();
+            michi.getKitCard().setDeposit(20);
+            em.merge(michi);
+            em.getTransaction().commit();
+        }finally {
+            if(em.getTransaction().isActive())
+                em.getTransaction().rollback();
+        }
+
+       michi =  em.find(Student.class , 1641518);
+        System.out.println(michi);
+
+
+
 
     }
 
