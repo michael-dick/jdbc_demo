@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- We need use Apache Maven - basically this "tool" makes sure all our external libraries are available in our project, so we don't have to import them-->
+<!-- We use Apache Maven - basically this "tool" makes sure all our external libraries are available in our project, so we don't have to import them-->
 <!-- For more information about build-management-tools visit : https://de.wikipedia.org/wiki/Apache_Maven -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
