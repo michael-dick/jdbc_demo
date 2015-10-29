@@ -1,8 +1,5 @@
 package prog3.jpa;
 
-import prog3.jpa.KITCard;
-import prog3.jpa.Student;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
